@@ -1,4 +1,4 @@
-FROM rregistry.access.redhat.com/rhel9/rhel-bootc:9.4
+FROM registry.access.redhat.com/rhel9/rhel-bootc:9.4
 
 RUN dnf install -y openssh-server && \
     dnf clean all && \
