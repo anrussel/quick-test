@@ -8,10 +8,19 @@ jobs:
   login:
     runs-on: self-hosted
     steps:
-      -
-        name: Login to Quay.io
+      - name: Login to Quay.io
         uses: redhat-actions/podman-login@v1
         with:
           registry: quay.io
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_ROBOT_TOKEN }}
+
+
+    - name: Build Image
+      id: build-image
+      uses: redhat-actions/buildah-build@v2
+      with:
+        image: anrussel/quick-test
+        tags: latest ${{ github.sha }}
+        containerfiles: |
+          ./Containerfile
