@@ -6,7 +6,7 @@ on:
 
 jobs:
   login:
-    runs-on: srv01-mine-01
+    runs-on: srv01-quick-test
     steps:
       -
         name: Login to Quay.io
