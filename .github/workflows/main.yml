@@ -15,6 +15,13 @@ jobs:
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_ROBOT_TOKEN }}
 
+      - name: Login to registry.redhat.io
+        uses: redhat-actions/podman-login@v1
+        with:
+          registry: registry.redhat.io
+          username: ${{ secrets.RHN_USERNAME }}
+          password: ${{ secrets.RHN_ROBOT_TOKEN }}
+
 
       - name: Build Image
         id: build-image
